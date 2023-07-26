@@ -6,7 +6,7 @@
     </head>
 
     <body>
-        <h1>Rock Paper Scissors</h1>
+        <h1>Rock Paper Scissors on Console</h1>
         <script>
             function getRandomNumber (min, max) {
                 return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -34,56 +34,91 @@
             function playGame (playerSelection, computerSelection) {
                 playerSelection = playerSelection.toLowerCase().trim();
                 let message;
+                let winner;
                 
                 if (playerSelection === computerSelection) {
                     message = `Computer's choice: ${computerSelection}\n` +
                     `Your choice: ${playerSelection}\n` +
-                    `It's a tie.`;
-                    return message;
+                    `It's a tie.`;   
                 }
                 else if (playerSelection === "rock" && computerSelection === "paper") {
+                    winner = "computer";
                     message = `Computer's choice: ${computerSelection}\n` +
                     `Your choice: ${playerSelection}\n` +
-                    `You've lost. Paper beats rock.`;
-                    return message;
+                    `You've lost. Paper beats rock.`;   
                 }
                 else if (playerSelection === "rock" && computerSelection === "scissors") {
+                    winner = "player";
                     message = `Computer's choice: ${computerSelection}\n` +
                     `Your choice: ${playerSelection}\n` +                
-                    `You've won! Rock beats scissors.`;
-                    return message;
+                    `You've won! Rock beats scissors.`;    
                 }
                 else if (playerSelection === "paper" && computerSelection === "rock") {
+                    winner = "player";
                     message = `Computer's choice: ${computerSelection}\n` +
                     `Your choice: ${playerSelection}\n` +
-                    `You've won! Paper beats rock.`;
-                    return message;
+                    `You've won! Paper beats rock.`;    
                 }
                 else if (playerSelection === "paper" && computerSelection === "scissors") {
+                    winner = "computer";
                     message = `Computer's choice: ${computerSelection}\n` +
                     `Your choice: ${playerSelection}\n` +
-                    `You've lost. Scissors beats paper`;
-                    return message;
+                    `You've lost. Scissors beats paper.`;    
                 }
                 else if (playerSelection === "scissors" && computerSelection === "rock") {
+                    winner = "computer";
                     message =`Computer's choice: ${computerSelection}\n` +
                     `Your choice: ${playerSelection}\n` +
-                    `You've lost. Rock beats scissors.`;
-                    return message;
+                    `You've lost. Rock beats scissors.`;    
                 }
                 else if (playerSelection === "scissors" && computerSelection === "paper") {
+                    winner = "player";
                     message =`Computer's choice: ${computerSelection}\n` +
                     `Your choice: ${playerSelection}\n` +
-                    `You've won! Scissors beats paper.`;
-                    return message;
+                    `You've won! Scissors beats paper.`;     
                 }
                 else {
-                    message = "Some type of error occurred.";
-                    return message;
+                    message = "Some type of error occurred."; 
                 }
+
+                const result = {
+                    message,
+                    winner
+                };
+
+                return result;
             }
 
-            console.log(playGame(prompt("Rock, Paper, Scissors?", " "), getComputerChoice() ) );
+            function fiveRoundsGame() {
+                let computerScore = 0;
+                let playerScore = 0;
+
+                for (let i = 0; i < 5; i++) {
+                    let result = playGame(prompt("Rock, Paper, Scissors?", " "), getComputerChoice() );
+                    console.log(result.message);
+                    if (result.winner == "computer") {
+                        computerScore += 1;
+                    }
+                    else if (result.winner == "player") {
+                        playerScore += 1;
+                    }
+
+                    console.log(`Scores:\nComputer ${computerScore}\nYou: ${playerScore}`);
+                }
+
+                if (playerScore > computerScore) {
+                    console.log("Congratz. You've won the game!");
+                }
+                else if (computerScore > playerScore) {
+                    console.log("Sorry. You've lost the game.");
+                }
+                else {
+                    console.log("Game ended in a tie.")
+                }
+
+            };
+
+            fiveRoundsGame();          
         </script>
     </body>
 </html>
