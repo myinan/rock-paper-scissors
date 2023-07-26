@@ -31,7 +31,59 @@
                 return comChoice;
             }
 
-            console.log(getComputerChoice());
+            function playGame (playerSelection, computerSelection) {
+                playerSelection = playerSelection.toLowerCase().trim();
+                let message;
+                
+                if (playerSelection === computerSelection) {
+                    message = `Computer's choice: ${computerSelection}\n` +
+                    `Your choice: ${playerSelection}\n` +
+                    `It's a tie.`;
+                    return message;
+                }
+                else if (playerSelection === "rock" && computerSelection === "paper") {
+                    message = `Computer's choice: ${computerSelection}\n` +
+                    `Your choice: ${playerSelection}\n` +
+                    `You've lost. Paper beats rock.`;
+                    return message;
+                }
+                else if (playerSelection === "rock" && computerSelection === "scissors") {
+                    message = `Computer's choice: ${computerSelection}\n` +
+                    `Your choice: ${playerSelection}\n` +                
+                    `You've won! Rock beats scissors.`;
+                    return message;
+                }
+                else if (playerSelection === "paper" && computerSelection === "rock") {
+                    message = `Computer's choice: ${computerSelection}\n` +
+                    `Your choice: ${playerSelection}\n` +
+                    `You've won! Paper beats rock.`;
+                    return message;
+                }
+                else if (playerSelection === "paper" && computerSelection === "scissors") {
+                    message = `Computer's choice: ${computerSelection}\n` +
+                    `Your choice: ${playerSelection}\n` +
+                    `You've lost. Scissors beats paper`;
+                    return message;
+                }
+                else if (playerSelection === "scissors" && computerSelection === "rock") {
+                    message =`Computer's choice: ${computerSelection}\n` +
+                    `Your choice: ${playerSelection}\n` +
+                    `You've lost. Rock beats scissors.`;
+                    return message;
+                }
+                else if (playerSelection === "scissors" && computerSelection === "paper") {
+                    message =`Computer's choice: ${computerSelection}\n` +
+                    `Your choice: ${playerSelection}\n` +
+                    `You've won! Scissors beats paper.`;
+                    return message;
+                }
+                else {
+                    message = "Some type of error occurred.";
+                    return message;
+                }
+            }
+
+            console.log(playGame(prompt("Rock, Paper, Scissors?", " "), getComputerChoice() ) );
         </script>
     </body>
 </html>
