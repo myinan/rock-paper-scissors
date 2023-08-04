@@ -1,0 +1,91 @@
+html {
+    background-color: #1f2937;
+    color: #f3f4f6;
+}
+
+
+h1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+    font-size: 50px;
+}
+
+.buttons-container {
+    margin-top: 75px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    width: 100px;
+    height: 50px;
+    font-size: larger;
+    margin-top: 50px;
+    background-color: #93c5fd;
+    border: black;
+    border-radius: 10px;
+}
+
+
+.buttons-container #player-count {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    background-color: #0f766e;
+    width: 150px;
+    height: 150px;
+    margin-right: 100px;
+    border-radius: 10px;
+}
+
+#p-score {
+    font-weight: bold;
+    font-size: 55px;
+    margin: auto;
+}
+
+.buttons-container #computer-count {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #0f766e;
+    width: 150px;
+    height: 150px;
+    margin-left: 100px;
+    border-radius: 10px;
+}
+
+#c-score {
+    font-weight: bold;
+    font-size: 55px;
+    margin: auto;
+}
+
+.score-text {
+    font-size: 18px;
+    font-style: italic;
+    margin: 0px;
+}
+
+#message {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 100px;
+    font-size: 40px;
+}
+
+#play-again {
+    display: flex;
+    justify-content: center;
+}
+
+#play-again button {
+    width: 130px;
+    margin-top: 0px;
+    background-color: #f472b6;
+}
